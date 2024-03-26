@@ -200,11 +200,22 @@ class BigCard extends StatelessWidget {
       color: theme.colorScheme.onPrimary,
     );
 
+    final boldStyle = theme.textTheme.displayMedium!.copyWith(
+      color: theme.colorScheme.onPrimary,
+      fontWeight: FontWeight.bold,
+    );
+
     return Card(
       color: theme.colorScheme.primary,
       child: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Text(pair.asLowerCase, style: style,),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(pair.first.toLowerCase(), style: style,),
+            Text(pair.second.toLowerCase(), style: boldStyle,),
+          ],
+        ),
       ),
     );
   }
